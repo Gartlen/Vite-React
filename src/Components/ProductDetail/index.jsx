@@ -10,20 +10,20 @@ const ProductDetail = () => {
     return(
         <aside
         className={`${context.isProductDetailOpen ? 'flex': 'hidden'} product-detail flex flex-col fixed right-0 border border-black rounded-lg bg-white p-6`}>
-            <div className='flex justify-between items-center'>
-                <h2 className='font-medium text-xl'>Detail</h2>
-                <div>
-                <XMarkIcon className='h-6 w-6 text-black cursor-pointer' onClick={() => context.closeProductDetail ()}></XMarkIcon>
+                <div className='flex justify-between items-center'>
+                    <h2 className='font-medium text-xl'>Detail</h2>
+                        <div>
+                            <XMarkIcon className='h-6 w-6 text-black cursor-pointer' onClick={() => context.closeProductDetail ()}></XMarkIcon>
+                    </div>
                 </div>
-                <figure>
-                    <img className='w-full h-full rounded-lg' src={context.productToShow.images[0]} alt={context.productToShow.title} />
+                <figure className='px-6'>
+                    <img className='w-full h-full rounded-lg' src={context.productToShow.images ? context.productToShow.images[0]: ''} alt={context.productToShow.title} />
                 </figure>
                 <p className='flex flex-col p-6'>
                     <span className='font-medium text-2xl'>${context.productToShow.price}</span>
-                    <span className='font-medium text-md'>${context.productToShow.title}</span>
-                    <span className='font-medium text-sm'>${context.productToShow.description}</span>
+                    <span className='font-medium text-md'>{context.productToShow.title}</span>
+                    <span className='font-medium text-sm'>{context.productToShow.description}</span>
                 </p>
-            </div>
         </aside>
     )
 }
